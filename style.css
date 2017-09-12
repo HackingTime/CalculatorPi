@@ -7,7 +7,25 @@ body {
 }
 
 
-input {
-    width: 32%;
-    height: 10px;
+#disp {
+    height: 80px;
+    width: auto;
+
+    
+}
+
+#keys {
+    align-content: center;
+    
+}
+
+.spacer {
+    height: 4px;
+        
+}
+
+.mainbutton {
+    font-size:300%;
+     width: 24%;
+    height: 94.8px;
 }
