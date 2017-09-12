@@ -3,13 +3,17 @@ body {
     height: 480px;
     width: 320px;
     border: 2px solid blue;
+    background-color: black;
     
 }
 
 
-#disp {
-    height: 80px;
-    width: auto;
+#display {
+    height: 78px;
+    width: 310px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: white;
 
     
 }

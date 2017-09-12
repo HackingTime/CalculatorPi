@@ -1,0 +1,50 @@
+<html>
+    <body>
+        <canvas id="display" width="260" height="140">
+            Your browser is unfortunately not supported.    
+        </canvas>
+        <div class="spacer"></div>
+    <div id="keys">
+        <input type="button" class="mainbutton" value="7">
+        <input type="button" class="mainbutton" value="8">
+        <input type="button" class="mainbutton" value="9">
+        <input type="button" class="mainbutton" value="+">
+        <br><div class="spacer"></div>
+        <input type="button" class="mainbutton" value="4">   
+        <input type="button" class="mainbutton" value="5">
+        <input type="button" class="mainbutton" value="6">
+        <input type="button" class="mainbutton" value="&minus;">
+        <br><div class="spacer"></div>        
+        <input type="button" class="mainbutton" value="1">
+        <input type="button" class="mainbutton" value="2">
+        <input type="button" class="mainbutton" value="3">
+        <input type="button" class="mainbutton" value="X">
+        <br><div class="spacer"></div>
+        <input type="button" class="mainbutton" value="0">
+        <input type="button" class="mainbutton" value=".">
+        <input type="button" class="mainbutton" value="0">
+        <input type="button" class="mainbutton" value="÷">
+    </div>
+    
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="segment-display.js"></script>
+        <script type="text/javascript">
+
+            var display = new SegmentDisplay("display");
+            display.pattern         = "#.#.#.#.#.#.#";
+            display.displayAngle    = 0;
+            display.digitHeight     = 19.5;
+            display.digitWidth      = 15.5;
+            display.digitDistance   = 2.5;
+            display.segmentWidth    = 2.1;
+            display.segmentDistance = 0.4;
+            display.segmentCount    = 14;
+            display.cornerType      = 3;
+            display.colorOn         = "#ff2c0f";
+            display.colorOff        = "#491005";
+            display.draw();
+
+            display.setValue("A a B b");
+        </script>
+    </body>
+</html>

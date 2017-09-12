@@ -1,0 +1,14 @@
+var display = new SegmentDisplay("display");
+display.pattern         = "#.#.#.#.#.#.#";
+display.displayAngle    = 0;
+display.digitHeight     = 19.5;
+display.digitWidth      = 15.5;
+display.digitDistance   = 2.5;
+display.segmentWidth    = 2.1;
+display.segmentDistance = 0.4;
+display.segmentCount    = 14;
+display.cornerType      = 3;
+display.colorOn         = "#ff2c0f";
+display.colorOff        = "#491005";
+display.draw();
+display.setValue("");

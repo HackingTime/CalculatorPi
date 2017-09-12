@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="script.js"></script>
+   <!--
+    Copyright Hackingtime 2017
+    All Rights Reserved
+
+    Credit to Rüdiger Appel
+    http://www.3quarks.com
+    for the 7 segment display code.
+    -->
+    <script type="text/javascript" src="segment-display.js"></script>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <title>CalculatorPi</title>
@@ -9,10 +17,9 @@
 </head>
 <body>
   
-    <div class="spacer"></div>
-    <div id="disp">
-    
-    </div>
+       <canvas id="display">
+        Your browser is unfortunately not supported.
+       </canvas>
     <div class="spacer"></div>
     <div id="keys">
         <input type="button" class="mainbutton" value="7">
@@ -32,9 +39,32 @@
         <br><div class="spacer"></div>
         <input type="button" class="mainbutton" value="0">
         <input type="button" class="mainbutton" value=".">
-        <input type="button" class="mainbutton" value="0">
+        <input type="button" class="mainbutton" value="=" onclick="updateDisp();">
         <input type="button" class="mainbutton" value="÷">
     </div>
- 
+    <script type="text/javascript">
+        
+            var display = new SegmentDisplay("display");
+            display.pattern         = "#.#.#.#.#.#.#";
+            display.displayAngle    = 0;
+            display.digitHeight     = 49.5;
+            display.digitWidth      = 15.5;
+            display.digitDistance   = 2.5;
+            display.segmentWidth    = 2.1;
+            display.segmentDistance = 0.7;
+            display.segmentCount    = 14;
+            display.cornerType      = 3;
+            display.colorOn         = "#ff2c0f";
+            display.colorOff        = "#491005";
+            display.draw();
+
+            display.setValue("A g B b");
+        function updateDisp(){
+           
+             display.digitHeight     = 80.5;
+             display.digitHeight     = 80.5;
+            display.setValue("A E B b");
+        }
+        </script>
 </body>
 </html>
