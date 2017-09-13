@@ -22,25 +22,25 @@
        </canvas>
     <div class="spacer"></div>
     <div id="keys">
-        <input type="button" class="mainbutton" value="7">
-        <input type="button" class="mainbutton" value="8">
-        <input type="button" class="mainbutton" value="9">
-        <input type="button" class="mainbutton" value="+">
+        <input type="button" class="mainbutton" value="7" onclick="updateDisp('7')">
+        <input type="button" class="mainbutton" value="8" onclick="updateDisp('8')">
+        <input type="button" class="mainbutton" value="9" onclick="updateDisp('9')">
+        <input type="button" class="mainbutton" value="+" onclick="updateDisp('+')">
         <br><div class="spacer"></div>
-        <input type="button" class="mainbutton" value="4">   
-        <input type="button" class="mainbutton" value="5">
-        <input type="button" class="mainbutton" value="6">
-        <input type="button" class="mainbutton" value="&minus;">
+        <input type="button" class="mainbutton" value="4" onclick="updateDisp('4')">   
+        <input type="button" class="mainbutton" value="5" onclick="updateDisp('5')">
+        <input type="button" class="mainbutton" value="6" onclick="updateDisp('6')">
+        <input type="button" class="mainbutton" value="&minus;" onclick="updateDisp('-')">
         <br><div class="spacer"></div>        
-        <input type="button" class="mainbutton" value="1">
-        <input type="button" class="mainbutton" value="2">
-        <input type="button" class="mainbutton" value="3">
-        <input type="button" class="mainbutton" value="X">
+        <input type="button" class="mainbutton" value="1" onclick="updateDisp('1')">
+        <input type="button" class="mainbutton" value="2" onclick="updateDisp('2')">
+        <input type="button" class="mainbutton" value="3" onclick="updateDisp('3')">
+        <input type="button" class="mainbutton" value="X" onclick="updateDisp('x')">
         <br><div class="spacer"></div>
-        <input type="button" class="mainbutton" value="0">
-        <input type="button" class="mainbutton" value=".">
-        <input type="button" class="mainbutton" value="=" onclick="updateDisp();">
-        <input type="button" class="mainbutton" value="÷">
+        <input type="button" class="mainbutton" value="0" onclick="updateDisp('0');">
+        <input type="button" class="mainbutton" value="." onclick="updateDisp('.');">
+        <input type="button" class="mainbutton" value="=" onclick="updateDisp('=');">
+        <input type="button" class="mainbutton" value="÷" onclick="updateDisp('÷');">
     </div>
     <script type="text/javascript">
         
@@ -59,11 +59,61 @@
             display.draw();
 
             display.setValue("A g B b");
-        function updateDisp(){
+            var x = "";
+            var y = 0;
+        function updateDisp(inpt){
            
-            
-            display.setValue("A C B b");
+            //console.log(inpt.length);
+            //display.setValue(inpt[0]+" "+inpt[1]);
+            //if (inpt == "."){
+                
+        //    }
+            if (inpt != "."){
+            if(y == 1){ x = x+inpt; y=0;}
+            else if (x != ""){
+            x = x+" "+inpt;
+            }
+           
+            else{x = inpt;}
+            display.setValue(x);
+            console.log(x);
         }
+            else{
+                
+            y = 1;
+            x = x+inpt;
+            display.setValue(x);
+            console.log(x);  
+            }
+        }
+        
+        /* 
+        if (inpt%1 === 0){ //check if intager
+           
+           }
+            else{
+                
+                 display.setValue("* e r r o r *"); 
+            }
+        switch(inpt.length){
+            
+            case 0:
+                console.log("Plese input something!");
+            break;
+            
+            case 1:
+               display.setValue("            "+inpt[0]); 
+            break;
+                    
+            case 2:
+               display.setValue("          "+inpt[0]+" "+inpt[1]); 
+            break;
+                    
+            case 3:
+               display.setValue("        "+inpt[0]+" "+inpt[1]+" "+inpt[2]); 
+            break;
+            
+        }*/
         </script>
 </body>
 </html>
