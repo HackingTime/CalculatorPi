@@ -21,28 +21,76 @@
         Your browser is unfortunately not supported.
        </canvas>
     <div class="spacer"></div>
+    
+    
     <div id="keys">
+        
         <input type="button" class="mainbutton" value="7" onclick="updateDisp('7')">
         <input type="button" class="mainbutton" value="8" onclick="updateDisp('8')">
         <input type="button" class="mainbutton" value="9" onclick="updateDisp('9')">
         <input type="button" class="mainbutton" value="+" onclick="updateDisp('+')">
+        
+        <input type="button" class="mainbutton" value="&larr;" onclick="updateDisp('backsp')" title="Backspace">
         <br><div class="spacer"></div>
+        
         <input type="button" class="mainbutton" value="4" onclick="updateDisp('4')">   
         <input type="button" class="mainbutton" value="5" onclick="updateDisp('5')">
         <input type="button" class="mainbutton" value="6" onclick="updateDisp('6')">
         <input type="button" class="mainbutton" value="&minus;" onclick="updateDisp('-')">
-        <br><div class="spacer"></div>        
+        
+        <input type="button" class="mainbutton" value="C" onclick="updateDisp('C')" title="Clear All">
+        <br><div class="spacer"></div>  
+        
         <input type="button" class="mainbutton" value="1" onclick="updateDisp('1')">
         <input type="button" class="mainbutton" value="2" onclick="updateDisp('2')">
         <input type="button" class="mainbutton" value="3" onclick="updateDisp('3')">
         <input type="button" class="mainbutton" value="X" onclick="updateDisp('x')">
+        <input type="button" class="mainbutton" value="F" onclick="updateDisp('F')" title="Functions">
+        
         <br><div class="spacer"></div>
         <input type="button" class="mainbutton" value="0" onclick="updateDisp('0');">
         <input type="button" class="mainbutton" value="." onclick="updateDisp('.');">
         <input type="button" class="mainbutton" value="=" onclick="updateDisp('=');">
-        <input type="button" class="mainbutton" value="÷" onclick="updateDisp('÷');">
+        <input type="button" class="mainbutton" value="÷" onclick="updateDisp('/');">
+        <a href="help.html">    <input type="button" class="mainbutton" value="H" title="Help"></a>
     </div>
+    
+    
+    <div id="funkeys" class="hideit">
+        
+        <input type="button" class="smallbutton" value="Sin" onclick="updateDisp('sin')">
+        <input type="button" class="smallbutton" value="Cos" onclick="updateDisp('cos')">
+        <input type="button" class="smallbutton" value="Tan" onclick="updateDisp('tan')">
+        <input type="button" class="smallbutton" value="F" onclick="updateDisp('+')">
+        
+        <input type="button" class="smallbutton" value="&larr;" onclick="updateDisp('backsp')" title="Backspace">
+        <br><div class="spacer"></div>
+        
+        <input type="button" class="smallbutton" value="4" onclick="updateDisp('4')">   
+        <input type="button" class="smallbutton" value="5" onclick="updateDisp('5')">
+        <input type="button" class="smallbutton" value="6" onclick="updateDisp('6')">
+        <input type="button" class="smallbutton" value="&minus;" onclick="updateDisp('-')">
+        
+        <input type="button" class="smallbutton" value="C" onclick="updateDisp('C')" title="Clear All">
+        <br><div class="spacer"></div>  
+        
+        <input type="button" class="smallbutton" value="1" onclick="updateDisp('1')">
+        <input type="button" class="smallbutton" value="2" onclick="updateDisp('2')">
+        <input type="button" class="smallbutton" value="3" onclick="updateDisp('3')">
+        <input type="button" class="smallbutton" value="X" onclick="updateDisp('x')">
+        <input type="button" class="smallbutton" value="Main" onclick="updateDisp('main')" title="Functions">
+        
+        <br><div class="spacer"></div>
+        <input type="button" class="smallbutton" value="0" onclick="updateDisp('0');">
+        <input type="button" class="smallbutton" value="." onclick="updateDisp('.');">
+            <input type="button" class="smallbutton" value="=" onclick="updateDisp('=');">
+        <input type="button" class="smallbutton" value="÷" onclick="updateDisp('/');">
+        <a href="help.html">    <input type="button" class="smallbutton" value="H" title="Help"></a>
+    </div>
+    
+    
     <script type="text/javascript">
+        
         
             var display = new SegmentDisplay("display");
             display.pattern         = "#.#.#.#.#.#.#";
@@ -58,9 +106,17 @@
             display.colorOff        = "#491005";
             display.draw();
 
-            display.setValue("A g B b");
+            display.setValue("C A L C   P I");
             var x = "";
             var y = 0;
+            var z = "";
+            var a = "";
+            var b = "";
+            var prev = "";
+            var check = 0;
+            var subprev = "";
+            var prev = 0;
+            var prevopp = "";
         function updateDisp(inpt){
            
             //console.log(inpt.length);
@@ -68,13 +124,131 @@
             //if (inpt == "."){
                 
         //    }
-            if (inpt != "."){
-            if(y == 1){ x = x+inpt; y=0;}
+            if (inpt == "="){
+                
+                
+                if(prevopp == "+"){
+                       z = +z + +prev;
+                        z=Math.fround(z);
+                        z = z.toString();
+                    console.log("zzzzzzzz: "+z)
+                        for(ct=0;ct<=z.length-1;ct++){
+                    if(ct == 0){
+                     x = z[ct];
+                    }
+                    else{
+                        if((z[ct] != ".") && (z[ct-1] != ".")){
+                        x = x+" "+z[ct];
+                        console.log(z.length);
+                        }
+                        else{
+                            console.log("else")
+                            x = x+z[ct];
+                        }
+                    }
+                    
+                }
+                    
+                    console.log("xxxxxxx: "+x)
+                   display.setValue(x);     
+                        
+                        
+                        
+                        
+                              }
+                        
+                        
+               
+                
+            }
+            else if (inpt == "backsp"){
+                
+               
+                inpt = "";
+                a = 0;
+                b = 0;
+                
+                subprev = z;
+                z = "";
+                
+                for(ct=0;ct<=subprev.length-1;ct++){
+                    if(ct == 0){
+                     z = subprev[ct];
+                    }
+                    else if(subprev[ct] != "."){
+                        z = z+""+subprev[ct];
+                        console.log(subprev.length-2);
+                        }
+                        else{
+                            z = z+subprev[ct];
+                        }
+                    
+                    
+                }
+               
+                console.log("whatwe write:"+x);
+                subprev = x;
+                x = "";
+                
+                for(ct=0;ct<=subprev.length-2;ct++){
+                    if(ct == 0){
+                     x = subprev[ct];
+                    }
+                    else{
+                        if(subprev[ct] != "."){
+                        x = x+""+subprev[ct];
+                        console.log(subprev.length-2);
+                        }
+                        else{
+                            x = x+subprev[ct];
+                        }
+                    }
+                    
+                }
+                
+                 display.setValue(x);
+            }
+            else if(inpt == "F"){
+                hideele("keys");
+                showele("funkeys");
+            }
+            else if(inpt == "main"){
+                hideele("funkeys");
+                showele("keys");
+            }
+            
+            else if(inpt == "C"){
+                x = "";
+                y = 0;
+                z = "";
+                display.setValue("C A L C   P I")
+                
+            }
+             else if(inpt == "sin"){
+            display.setValue(sine(z));
+            
+             }
+            
+            //basic functions **************************
+            
+            
+            else if(inpt == "+"){
+                prev = z;
+                prevopp = "+";
+                display.setValue("");
+                z="";
+                x="";
+            }
+                
+            //add an else if for an special button assignment
+            else if (inpt != "."){
+            if(y == 1){ x = x+inpt; y=0; z = z+""+inpt;}
             else if (x != ""){
             x = x+" "+inpt;
+            z = z+""+inpt;
             }
            
-            else{x = inpt;}
+            else{x = inpt; z=inpt;}
             display.setValue(x);
             console.log(x);
         }
@@ -82,6 +256,7 @@
                 
             y = 1;
             x = x+inpt;
+            z = z+""+inpt
             display.setValue(x);
             console.log(x);  
             }
@@ -113,7 +288,95 @@
                display.setValue("        "+inpt[0]+" "+inpt[1]+" "+inpt[2]); 
             break;
             
+        
         }*/
+        
+        
+        
+        //##########################TRIG!!
+        
+        
+        function sine(z){
+            
+             console.log("before sin:"+z);
+               // if(z == 180){
+                if(z%180 == 0){
+                    a = 0;
+                }
+                else{
+                    a = Math.sind(z);
+                    a = Math.fround(a);
+                }
+                a = a.toString();
+                 console.log("after sin:"+a);
+                console.log(a[0]);
+              
+                
+              
+                
+                for(coun=0;coun<8;coun++){
+                    if(coun != 0){
+                if ((a[coun] != "-") && (a[coun] != ".")){
+                    if (a[coun]%1 != 0)break;
+                }
+                console.log("num to be processed:"+a[coun]);
+                if (a[coun] != "."){
+                   if (check != 1){
+                      b = b+" "+a[coun];
+                   }
+                    else{
+                       b = b+a[coun];
+                        check = 0;
+                    }
+                         console.log(coun);
+                        
+                    
+                }
+                    else{
+                       b=b+".";
+                     console.log("dec "+coun);
+                        check = 1;
+                    
+                    }
+                    
+                    }
+                    else{
+                        b = a[coun];
+                    }
+                }
+                
+               
+               // }
+              //  else {b = 0;}
+                if(a == "NaN"){
+                    b="* E R R O R *"
+                }
+                 console.log("type of input:"+typeof a);
+                 console.log("type of output:"+typeof b);
+               console.log("after parse:"+b);
+             //display.setValue(b);
+            return b;
+            
+        }
+        
+        
+        
+        (function (R) {
+  Math.cosd = function(d) { return Math.cos(d * R); };
+  Math.sind = function(d) { return Math.sin(d * R); };
+  Math.tand = function(d) { return Math.tan(d * R); };
+})(Math.PI / 180);
+        
+        function hideele(ele){
+             
+            document.getElementById(ele).classList.add('hideit');
+
+           
+        }
+        function showele(ele){
+             document.getElementById(ele).classList.remove('hideit');
+            
+        }
         </script>
 </body>
 </html>

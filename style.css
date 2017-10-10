@@ -4,6 +4,9 @@ body {
     width: 320px;
     border: 2px solid blue;
     background-color: black;
+    margin: 0px;
+    color: white;
+    
     
 }
 
@@ -21,6 +24,7 @@ body {
 #keys {
     align-content: center;
     
+    
 }
 
 .spacer {
@@ -30,6 +34,34 @@ body {
 
 .mainbutton {
     font-size:300%;
-     width: 24.06%;
+     width: 19.0%;
     height: 94.8px;
+    
+}
+
+.smallbutton {
+    font-size:100%;
+     width: 19.0%;
+    height: 94.8px;
+    
+}
+
+
+#helpbody {
+    text-align: center
+}
+
+
+
+
+.helpbutton {
+    width: 46.2%;
+    height:188px;
+    margin: 5px;
+    font-size: 300%;
+    
+}
+.hideit {
+    display: none;
+    
 }
