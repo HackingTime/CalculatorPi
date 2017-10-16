@@ -117,6 +117,7 @@
             var subprev = "";
             var prev = 0;
             var prevopp = "";
+            var trans = "";
         function updateDisp(inpt){
            
             //console.log(inpt.length);
@@ -129,9 +130,18 @@
                 
                 if(prevopp == "+"){
                        z = +z + +prev;
-                        z=Math.fround(z);
-                        z = z.toString();
-                    console.log("zzzzzzzz: "+z)
+                    trans = sliceit(z);
+                    z = z.toString();
+                    
+                    z = trans;
+                    z = Number(z);
+                    z=Math.fround(z);
+                    z = z.toString();
+                    console.log("zzzzzzzz type: "+typeof(z));
+                        
+                        
+                        
+                    console.log("zzzzzzzz: "+z);
                         for(ct=0;ct<=z.length-1;ct++){
                     if(ct == 0){
                      x = z[ct];
@@ -142,7 +152,7 @@
                         console.log(z.length);
                         }
                         else{
-                            console.log("else")
+                            console.log("else");
                             x = x+z[ct];
                         }
                     }
@@ -376,6 +386,13 @@
         function showele(ele){
              document.getElementById(ele).classList.remove('hideit');
             
+        }
+        function sliceit(numb){
+          
+            var cutit;
+            cutit = Number(7 - (Math.trunc(numb).toString().length))
+            slicer = Number(numb.toFixed(cutit));
+            return slicer;
         }
         </script>
 </body>
